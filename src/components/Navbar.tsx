@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo/Name */}
             <Link to="/" className="text-xl font-bold gradient-text">
-              REVYLL
+              REVYLL .OG
             </Link>
 
             {/* Desktop Menu */}

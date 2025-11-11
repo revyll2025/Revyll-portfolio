@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
@@ -77,6 +77,13 @@ const Contact = () => {
               <h3 className="text-xl font-bold mb-6">{t('contact.info')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4 glass-card p-4 rounded-lg">
+                  <Phone className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Whatsapp-Phones</p>
+                    <p>+1 (706) 786-3807 | +535 671 1937</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 glass-card p-4 rounded-lg">
                   <Mail className="h-5 w-5 text-primary" />
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
@@ -87,7 +94,7 @@ const Contact = () => {
                   <MapPin className="h-5 w-5 text-primary" />
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p>Cape Town, South Africa</p>
+                    <p>Port-gentil . Gabon</p>
                   </div>
                 </div>
               </div>
