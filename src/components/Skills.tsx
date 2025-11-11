@@ -1,4 +1,5 @@
 import { Code2, Database, Layout, Server, Package, GitBranch } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const skills = [
   { name: "React", icon: Code2, color: "text-primary" },
@@ -12,11 +13,12 @@ const skills = [
 ];
 
 const Skills = () => {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          Tech <span className="gradient-text">Stack</span>
+          <span className="gradient-text">{t('skills.title')}</span>
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

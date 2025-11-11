@@ -1,12 +1,14 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="py-8 px-6 border-t border-border bg-muted/20">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2025 Revyll OGANDAGA | Built with Vision
+            {t('footer.rights')}
           </p>
 
           <div className="flex gap-6">

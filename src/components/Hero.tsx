@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import ContactModal from "./ContactModal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import waterImage from "@/assets/revyll-water.png";
 
 const Hero = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const { t } = useLanguage();
 
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
@@ -18,32 +20,32 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img 
           src={waterImage} 
-          alt="Background" 
-          className="w-full h-full object-cover blur-sm"
+          alt="Revyll with water background" 
+          className="w-full h-full object-cover blur-[8px] scale-110"
         />
-        <div className="absolute inset-0 bg-background/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/90"></div>
+        <div className="absolute inset-0 bg-background/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="block mb-2">👋 Hi, I'm</span>
+            <span className="block mb-2">{t('hero.greeting')}</span>
             <span className="gradient-text">Revyll OGANDAGA</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-            Full Stack Web Developer
+            {t('hero.title')}
           </p>
           
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12">
-            Crafting interactive, scalable, and human-centered digital experiences
+            {t('hero.description')}
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mb-12">
             <Button size="lg" className="glow-primary group" onClick={scrollToProjects}>
-              View My Work
+              {t('hero.viewWork')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
@@ -52,7 +54,7 @@ const Hero = () => {
               className="border-primary/50 hover:bg-primary/10"
               onClick={() => setIsContactOpen(true)}
             >
-              Let's Connect
+              {t('hero.connect')}
             </Button>
           </div>
 

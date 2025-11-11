@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import ProjectDetailModal from "./ProjectDetailModal";
 import project1 from "@/assets/projects/project-1.jpg";
 import project2 from "@/assets/projects/project-2.jpg";
@@ -179,16 +181,20 @@ const projects = [
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const { t } = useLanguage();
+  
+  // Show only first 4 projects as featured
+  const featuredProjects = projects.slice(0, 4);
 
   return (
     <section id="projects" className="py-20 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          Featured <span className="gradient-text">Projects</span>
+          <span className="gradient-text">{t('projects.title')}</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <Card 
               key={index}
               className="glass-card p-6 hover:border-primary/50 transition-all duration-300 hover:glow-primary group overflow-hidden"
@@ -229,22 +235,36 @@ const Projects = () => {
                 className="w-full glow-primary"
                 onClick={() => setSelectedProject(project)}
               >
-                See Details
+                {t('projects.seeDetails')}
               </Button>
             </Card>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <a 
-            href="https://github.com/revyll2025" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors"
+        <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Button
+            variant="outline"
+            className="border-primary/50 hover:bg-primary/10"
+            asChild
           >
-            <Github className="h-5 w-5" />
-            See More on GitHub
-          </a>
+            <Link to="/projects">
+              View All Projects
+            </Link>
+          </Button>
+          <Button
+            variant="outline"
+            className="border-primary/50 hover:bg-primary/10"
+            asChild
+          >
+            <a 
+              href="https://github.com/revyll2025" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="mr-2 h-5 w-5" />
+              {t('projects.viewGithub')}
+            </a>
+          </Button>
         </div>
 
         <ProjectDetailModal 

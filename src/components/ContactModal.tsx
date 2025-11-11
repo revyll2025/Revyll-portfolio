@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Send } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -16,6 +17,8 @@ interface ContactModalProps {
 }
 
 const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
+  const { t } = useLanguage();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -28,21 +31,21 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
         <DialogHeader>
           <DialogTitle className="text-2xl gradient-text flex items-center gap-2">
             <Mail className="h-6 w-6" />
-            Let's Connect
+            {t('modal.contact.title')}
           </DialogTitle>
           <DialogDescription>
-            Fill out the form below and I'll get back to you as soon as possible.
+            {t('modal.contact.description')}
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div>
             <label htmlFor="modal-name" className="block text-sm font-medium mb-2">
-              Name
+              {t('contact.name')}
             </label>
             <Input 
               id="modal-name"
-              placeholder="Your name" 
+              placeholder={t('contact.name')}
               className="bg-background/50 border-primary/20 focus:border-primary"
               required
             />
@@ -50,12 +53,12 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
           <div>
             <label htmlFor="modal-email" className="block text-sm font-medium mb-2">
-              Email
+              {t('contact.email')}
             </label>
             <Input 
               id="modal-email"
               type="email"
-              placeholder="your.email@example.com" 
+              placeholder={t('contact.email')}
               className="bg-background/50 border-primary/20 focus:border-primary"
               required
             />
@@ -63,11 +66,11 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
           <div>
             <label htmlFor="modal-message" className="block text-sm font-medium mb-2">
-              Message
+              {t('contact.message')}
             </label>
             <Textarea 
               id="modal-message"
-              placeholder="Tell me about your project..." 
+              placeholder={t('contact.message')}
               rows={5}
               className="bg-background/50 border-primary/20 focus:border-primary resize-none"
               required
@@ -75,7 +78,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
           </div>
 
           <Button type="submit" className="w-full glow-primary group">
-            Send Message
+            {t('contact.send')}
             <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </form>

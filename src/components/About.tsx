@@ -1,13 +1,17 @@
-import revyllSunset from "@/assets/revyll-sunset.png";
-import revyllWater from "@/assets/revyll-water.png";
-import revyllIndoor from "@/assets/revyll-indoor.png";
+import { Code2, Layers, Rocket } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import sunsetImage from "@/assets/revyll-sunset.png";
+import waterImage from "@/assets/revyll-water.png";
+import indoorImage from "@/assets/revyll-indoor.png";
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
-    <section id="about" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-20 px-6 bg-muted/30">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          About <span className="gradient-text">Me</span>
+          <span className="gradient-text">{t('about.title')}</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -17,7 +21,7 @@ const About = () => {
               <div className="col-span-2">
                 <div className="glass-card rounded-2xl p-1 glow-primary">
                   <img 
-                    src={revyllSunset} 
+                    src={sunsetImage} 
                     alt="Revyll at sunset" 
                     className="w-full h-auto rounded-xl object-cover"
                   />
@@ -25,14 +29,14 @@ const About = () => {
               </div>
               <div className="glass-card rounded-2xl p-1 border-primary/30">
                 <img 
-                  src={revyllWater} 
+                  src={waterImage} 
                   alt="Revyll by the water" 
                   className="w-full h-auto rounded-xl object-cover"
                 />
               </div>
               <div className="glass-card rounded-2xl p-1 border-secondary/30">
                 <img 
-                  src={revyllIndoor} 
+                  src={indoorImage} 
                   alt="Revyll indoor" 
                   className="w-full h-auto rounded-xl object-cover"
                 />
@@ -42,37 +46,32 @@ const About = () => {
 
           {/* About Text */}
           <div className="space-y-6">
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              I'm a passionate Full Stack Web Developer who discovered my love for coding 
-              through the intensive Le Wagon Bootcamp in Cape Town. What started as curiosity 
-              evolved into a mission: building digital experiences that are not just functional, 
-              but truly impactful.
-            </p>
-
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              My journey has equipped me with modern technologies and best practices — from 
-              crafting intuitive user interfaces with <span className="text-primary font-semibold">React</span> and{" "}
-              <span className="text-primary font-semibold">TypeScript</span>, to building robust 
-              backends with <span className="text-secondary font-semibold">Ruby on Rails</span> and{" "}
-              <span className="text-secondary font-semibold">NestJS</span>.
-            </p>
-
-            <div className="glass-card rounded-xl p-6 border-l-4 border-primary">
-              <p className="text-foreground/80 italic">
-                "I believe great software bridges technology and human needs — it should be 
-                beautiful, scalable, and solve real problems."
+            <div>
+              <h3 className="text-2xl font-bold mb-4 gradient-text">{t('about.journey')}</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {t('about.journeyText')}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              {["Modern UI/UX", "Full Stack Development", "Scalable Architecture", "Team Collaboration"].map((skill) => (
-                <span 
-                  key={skill}
-                  className="px-4 py-2 glass-card rounded-full text-sm border-primary/30 hover:border-primary transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 gradient-text">{t('about.strengths')}</h3>
+              <div className="grid gap-4">
+                {[
+                  { icon: Code2, text: t('about.strength1') },
+                  { icon: Layers, text: t('about.strength2') },
+                  { icon: Rocket, text: t('about.strength3') },
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={index} className="flex items-center gap-4 glass-card p-4 rounded-lg border border-primary/20">
+                      <div className="p-3 rounded-lg bg-primary/10">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <span className="font-medium">{item.text}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
