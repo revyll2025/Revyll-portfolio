@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import ProjectDetailModal from "@/components/ProjectDetailModal";
+import ProjectDetailModal, { type Project } from "@/components/ProjectDetailModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -19,10 +19,10 @@ import project9 from "@/assets/projects/project-9.jpg";
 import project10 from "@/assets/projects/project-10.jpg";
 
 const AllProjects = () => {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { t } = useLanguage();
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: "R.A.C Church Platform",
       description: "Modern church management system with event scheduling and member engagement",
@@ -269,11 +269,7 @@ const AllProjects = () => {
 
       <Footer />
 
-      <ProjectDetailModal
-        project={selectedProject}
-        isOpen={!!selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      <ProjectDetailModal project={selectedProject} isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} />
     </div>
   );
 };

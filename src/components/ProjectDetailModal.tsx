@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 
-interface Project {
+export interface Project {
   title: string;
   description: string;
   fullDescription: string;

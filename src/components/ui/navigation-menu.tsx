@@ -1,7 +1,10 @@
 import * as React from "react";
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
+import { Slot } from "@radix-ui/react-slot";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+
+/* eslint-disable react-refresh/only-export-components */
+import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
