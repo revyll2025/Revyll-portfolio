@@ -7,24 +7,51 @@ import sunsetImage from "@/assets/revyll-sunset.png";
 const About = () => {
   const { t } = useLanguage();
 
-  const timeline = [
+  const timelineExperience = [
     {
-      period: t('about.timeline.bootcamp.period'),
-      title: t('about.timeline.bootcamp.title'),
-      role: t('about.timeline.bootcamp.role'),
-      description: t('about.timeline.bootcamp.description'),
+      period: t('about.timeline.experience.istanbul.period'),
+      title: t('about.timeline.experience.istanbul.title'),
+      role: t('about.timeline.experience.istanbul.role'),
+      description: t('about.timeline.experience.istanbul.description'),
     },
     {
-      period: t('about.timeline.projects.period'),
-      title: t('about.timeline.projects.title'),
-      role: t('about.timeline.projects.role'),
-      description: t('about.timeline.projects.description'),
+      period: t('about.timeline.experience.cybercafe.period'),
+      title: t('about.timeline.experience.cybercafe.title'),
+      role: t('about.timeline.experience.cybercafe.role'),
+      description: t('about.timeline.experience.cybercafe.description'),
     },
     {
-      period: t('about.timeline.future.period'),
-      title: t('about.timeline.future.title'),
-      role: t('about.timeline.future.role'),
-      description: t('about.timeline.future.description'),
+      period: t('about.timeline.experience.seeg.period'),
+      title: t('about.timeline.experience.seeg.title'),
+      role: t('about.timeline.experience.seeg.role'),
+      description: t('about.timeline.experience.seeg.description'),
+    },
+  ];
+
+  const timelineEducation = [
+    {
+      period: t('about.timeline.education.lewagon.period'),
+      title: t('about.timeline.education.lewagon.title'),
+      role: t('about.timeline.education.lewagon.role'),
+      description: t('about.timeline.education.lewagon.description'),
+    },
+    {
+      period: t('about.timeline.education.istanbul.period'),
+      title: t('about.timeline.education.istanbul.title'),
+      role: t('about.timeline.education.istanbul.role'),
+      description: t('about.timeline.education.istanbul.description'),
+    },
+    {
+      period: t('about.timeline.education.duzce.period'),
+      title: t('about.timeline.education.duzce.title'),
+      role: t('about.timeline.education.duzce.role'),
+      description: t('about.timeline.education.duzce.description'),
+    },
+    {
+      period: t('about.timeline.education.lycee.period'),
+      title: t('about.timeline.education.lycee.title'),
+      role: t('about.timeline.education.lycee.role'),
+      description: t('about.timeline.education.lycee.description'),
     },
   ];
 
@@ -65,30 +92,45 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="relative pl-8">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary/80 via-primary/40 to-transparent" />
-                <div className="space-y-8">
-                  {timeline.map((item, index) => (
-                    <div key={index} className="relative">
-                      <div className="absolute -left-[1.15rem] top-4 h-5 w-5 rounded-full bg-background border border-primary/60 shadow-[0_0_20px_rgba(56,189,248,0.65)]">
-                        <div className="absolute inset-1 rounded-full bg-gradient-to-br from-primary to-secondary animate-pulse" />
-                      </div>
-                      <div className="glass-card rounded-2xl border border-white/10 bg-background/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
-                        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.4em] text-primary/70">
-                          <span>{item.period}</span>
-                          <span className="h-px w-8 bg-primary/40" />
-                          <span>{item.role}</span>
-                        </div>
-                        <h3 className="mt-4 text-2xl font-semibold gradient-text leading-snug">
-                          {item.title}
-                        </h3>
-                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
+              <div className="space-y-10">
+                {[{
+                  heading: t('about.timeline.experience.heading'),
+                  items: timelineExperience,
+                }, {
+                  heading: t('about.timeline.education.heading'),
+                  items: timelineEducation,
+                }].map((section, sectionIndex) => (
+                  <div key={section.heading} className="relative pl-8">
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold uppercase tracking-[0.4em] text-primary/70">
+                        {section.heading}
+                      </h3>
                     </div>
-                  ))}
-                </div>
+                    <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary/80 via-primary/40 to-transparent" />
+                    <div className="space-y-8">
+                      {section.items.map((item, index) => (
+                        <div key={`${sectionIndex}-${index}`} className="relative">
+                          <div className="absolute -left-[1.15rem] top-4 h-5 w-5 rounded-full bg-background border border-primary/60 shadow-[0_0_20px_rgba(56,189,248,0.65)]">
+                            <div className="absolute inset-1 rounded-full bg-gradient-to-br from-primary to-secondary animate-pulse" />
+                          </div>
+                          <div className="glass-card rounded-2xl border border-white/10 bg-background/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50">
+                            <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.35em] text-primary/70">
+                              <span>{item.period}</span>
+                              <span className="h-px w-8 bg-primary/40" />
+                              <span>{item.role}</span>
+                            </div>
+                            <h3 className="mt-4 text-2xl font-semibold gradient-text leading-snug">
+                              {item.title}
+                            </h3>
+                            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
