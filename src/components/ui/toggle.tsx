@@ -2,6 +2,7 @@ import * as React from "react";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { cva, type VariantProps } from "class-variance-authority";
 
+/* eslint-disable react-refresh/only-export-components */
 import { cn } from "@/lib/utils";
 
 const toggleVariants = cva(
