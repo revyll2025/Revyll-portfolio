@@ -62,14 +62,14 @@ src/
 
 ## Features
 
-- 🎨 Modern, futuristic design with glass morphism effects
-- 🌐 Multi-language support (English/French)
-- 📱 Fully responsive design
-- ⚡ Fast and optimized performance
-- 🎯 SEO optimized with meta tags
-- 📄 Resume viewer with PDF support
-- 💼 Project showcase with detailed modals
-- 📧 Contact form
+-  Modern, futuristic design with glass morphism effects
+-  Multi-language support (English/French)
+-  Fully responsive design
+-  Fast and optimized performance
+-  SEO optimized with meta tags
+-  Resume viewer with PDF support
+-  Project showcase with detailed modals
+-  Contact form
 
 ## Deployment
 
