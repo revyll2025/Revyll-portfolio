@@ -21,10 +21,10 @@ const Hero = () => {
         <img 
           src={waterImage} 
           alt="Revyll with water background" 
-          className="w-full h-full object-cover blur-[8px] scale-110"
+          className="w-full h-full object-cover blur-[4px] scale-100"
         />
         <div className="absolute inset-0 bg-background/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background"></div>
       </div>
 
       {/* Content */}
